@@ -1,3 +1,4 @@
+console.log(questions);
 /**
  * Get a random question from the list of questions.
  *
