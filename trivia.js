@@ -328,7 +328,7 @@ const convertIndexToLetter = () => {
 	// CODE GOES HERE
 };
 
-const correctAnswers = () => {
+const countCorrectAnswers = () => {
   // using alert()
   // tell the user how many questions they got correct
   // bonus points if you can use .reduce();
