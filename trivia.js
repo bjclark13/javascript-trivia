@@ -66,6 +66,7 @@ const getAnswerOptions = question => {
 const convertLetterToIndex = letter => {
     // CODE GOES HERE
     const alphabet = 'abcdefghijklmnopqrstuvwxyz';
+    return alphabet.indexOf(letter)
 };
 
 /**
@@ -98,25 +99,30 @@ const countCorrectAnswers = () => {};
  * @param {*} question 
  * @returns 
  */
-const getCorrectAnswer = (question) => {};
+const getCorrectAnswer = (question) => {
+    return question.answers.findIndex((answer) => {
+        console.log(answer)
+        return answer.isCorrect
+    })
+};
 
-// let userAnswers = [];
-// for (let i = 0; i < questions.length; i++) {
-//     // TODO: write loop to ask 10 questions
-//     const question = getRandomQuestion(); // question
-//     const answer = prompt(getQuestionString(question, questions, i)); // ask  question
+let userAnswers = [];
+for (let i = 0; i < questions.length; i++) {
+    // TODO: write loop to ask 10 questions
+    const question = getRandomQuestion(); // question
+    const answer = prompt(getQuestionString(question, questions, i)); // ask  question
 
-//     const correctAnswer = getCorrectAnswer(question);
-//     console.log(correctAnswer, answer);
-//     if (convertLetterToIndex(answer.toLowerCase()) === correctAnswer) {
-//         alert('Correct');
-//         userAnswers[i] = true;
-//     } else {
-//         userAnswers[i] = false;
-//         alert(
-//             `Incorrect! The correct answer was ${question.answers[correctAnswer].text}`
-//         );
-//     }
-// }
+    const correctAnswer = getCorrectAnswer(question);
+    console.log(correctAnswer, answer);
+    if (convertLetterToIndex(answer.toLowerCase()) === correctAnswer) {
+        alert('Correct');
+        userAnswers[i] = true;
+    } else {
+        userAnswers[i] = false;
+        alert(
+            `Incorrect! The correct answer was ${question.answers[correctAnswer].text}`
+        );
+    }
+}
 
 countCorrectAnswers();
