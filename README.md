@@ -18,10 +18,10 @@ Question format:
 ```
 
 ## Group 1
-Create a function `getQuestionByCategory(category);` that uses `questions.filter()` and `questions.sort()` to return a random question where matches the provided category.
+Create a function `getRandomQuestion(category);` that returns a random
 
 ## Group 2 
 Create a function `` 
 
-## Group 3 
+## 
 
