@@ -20,15 +20,20 @@ Question format:
 
 ## Group 1
 
-[ ] Create a function `getRandomQuestion();` that returns a random
-
-[ ] Create a function `getAnswerOptions();` that takes in a question, and returns a string with the answer 
-
-## Group 2
+[ ] Create a function `getRandomQuestion();` that returns a random question
 
 [ ] Create a function `convertIndexToLetter()` that converts an index in the alphabetic to it's letter.
 
+[ ] Create a function `getAnswerOptions();` that takes in a question, and returns a string with the answer 
+
+
+## Group 2
+
+
+
 [ ] Create a function `convertLetterToIndex()` that converts a letter to it's index in the alphabet.
+
+[ ] Create a function `getCorrectAnswer();` that given a question, returns which answer has isCorrect = true
 
 [ ] Create a function countCorrectAnswers(); that looks at an array of the format
 
