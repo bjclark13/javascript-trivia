@@ -29,8 +29,6 @@ Question format:
 
 ## Group 2
 
-
-
 [ ] Create a function `convertLetterToIndex()` that converts a letter to it's index in the alphabet.
 
 [ ] Create a function `getCorrectAnswer();` that given a question, returns which answer has isCorrect = true
@@ -44,7 +42,11 @@ Question format:
 and using alert() to display how many times we hit `true`
 
 ## Together
-[ ] Combine everyone's code!
-[ ] Go through the answers.
-[ ] Add the ability to filter by a `category` key in the question object.
-[ ] What are some ideas for future improvement? What is one thing we learned?
+
+[] Combine everyone's code!
+
+[] Go through the answers.
+
+[] Add the ability to filter by a `category` key in the question object.
+
+[] What are some ideas for future improvement? What is one thing we learned?
