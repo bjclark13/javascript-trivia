@@ -264,7 +264,9 @@ const getRandomQuestion = () => {
 	// replace return with a random question
 	// remove the question from the array after
 	// it has been used
-	return questions[0];
+	const index = Math.floor(Math.random() * questions.length);
+
+	return questions.splice(index, 1)[0];
 };
 
 /**
@@ -272,9 +274,10 @@ const getRandomQuestion = () => {
  *
  * @param {*} question The trivia question being asked
  */
-const getQuestionString = (question, i) => {
+const getQuestionString = (question, questions, i) => {
+	console.log(question);
 	return `
-    ${i + 1}/10
+    ${i + 1}/${questions.length}
     ------------
     Please answer the following question:
     ${question.question}
@@ -295,7 +298,13 @@ const getAnswerOptions = question => {
 	// b: answer[1]
 	// c: answer[2]
 	// ...
-	return ``; // add answer options here
+	let returnString = '';
+	let i = 0;
+	for (const answer of question.answers) {
+		returnString += ` \n ${convertIndexToLetter(i)}: ${answer.text}`;
+		i++;
+	}
+	return returnString; // add answer options here
 };
 
 /**
@@ -311,6 +320,8 @@ const getAnswerOptions = question => {
  */
 const convertLetterToIndex = letter => {
 	// CODE GOES HERE
+	const alphabet = 'abcdefghijklmnopqrstuvwxyz';
+	return alphabet.indexOf(letter);
 };
 
 /**
@@ -324,31 +335,37 @@ const convertLetterToIndex = letter => {
  * ...
  * 25 -> z
  */
-const convertIndexToLetter = () => {
+const convertIndexToLetter = index => {
 	// CODE GOES HERE
+	const alphabet = 'abcdefghijklmnopqrstuvwxyz';
+	return alphabet[index];
 };
 
 const countCorrectAnswers = () => {
-  // using alert()
-  // tell the user how many questions they got correct
-  // bonus points if you can use .reduce();
+	// using alert()
+	// tell the user how many questions they got correct
+	// bonus points if you can use .reduce();
+};
+
+const getCorrectAnswer = (question, answer) => {
+	return question.answers.findIndex(answer => answer.isCorrect);
 };
 
 let userAnswers = [];
-for (let i = 0; i < 10; i++) {
+for (let i = 0; i < questions.length; i++) {
 	// TODO: write loop to ask 10 questions
 	const question = getRandomQuestion(); // question
-	const answer = prompt(getQuestionString(question, i)); // ask  question
+	const answer = prompt(getQuestionString(question, questions, i)); // ask  question
 
-	const correctAnswer = getCorrectAnsewer(question);
-
-	if (convertLetterToIndex(answer.toLowerCase() === correctAnswer)) {
+	const correctAnswer = getCorrectAnswer(question);
+	console.log(correctAnswer, answer);
+	if (convertLetterToIndex(answer.toLowerCase()) === correctAnswer) {
 		alert('Correct');
 		userAnswers[i] = true;
 	} else {
 		userAnswers[i] = false;
 		alert(
-			`Incorrect! The correct answer was ${question.answers[correctAnswer]}`
+			`Incorrect! The correct answer was ${question.answers[correctAnswer].text}`
 		);
 	}
 }
