@@ -41,6 +41,9 @@ getRandomQuestion();
  * @param {*} question
  */
 const getAnswerOptions = question => {
+    for (answer of question.answers) {
+        console.log(answer.isCorrect);
+    }
     // hint, use a loop
     // hint v2, use convertIndexToLetter() 
     // get the possible answer formatted in the format:
@@ -49,6 +52,7 @@ const getAnswerOptions = question => {
     // c: answer[2]
     // ...
 };
+getAnswerOptions(questions[9]);
 
 /**
  * Converts multiple choice options into
@@ -86,7 +90,10 @@ const convertLetterToIndex = letter => {
 const convertIndexToLetter = index => {
     // CODE GOES HERE
     const alphabet = 'abcdefghijklmnopqrstuvwxyz';
+    return alphabet[index];
+
 };
+console.log(convertIndexToLetter(16));
 
 const countCorrectAnswers = () => {};
 
