@@ -23,17 +23,17 @@ getRandomQuestion();
  *
  * @param {*} question The trivia question being asked
  */
-// const getQuestionString = (question, questions, i) => {
-//     console.log(question);
-//     return `
-//     ${i + 1}/${questions.length}
-//     ------------
-//     Please answer the following question:
-//     ${question.question}
+const getQuestionString = (question, questions, i) => {
+    console.log(question);
+    return `
+    ${i + 1}/${questions.length}
+    ------------
+    Please answer the following question:
+    ${question.question}
 
-//     Options: ${getAnswerOptions(question)}
-//   `;
-// };
+    Options: ${getAnswerOptions(question)}
+  `;
+};
 
 /**
  * Return a list of answer based on a provided question.
@@ -70,7 +70,7 @@ getAnswerOptions(questions[9]);
 const convertLetterToIndex = letter => {
     // CODE GOES HERE
     const alphabet = 'abcdefghijklmnopqrstuvwxyz';
-    return alphabet.indexOf(letter)
+    return alphabet.indexOf(letter);
 };
 
 /**
@@ -95,7 +95,19 @@ const convertIndexToLetter = index => {
 };
 console.log(convertIndexToLetter(16));
 
-const countCorrectAnswers = () => {};
+const countCorrectAnswers = (answerTally) => {
+    let answerTally = [true, false, true, false];
+    // 	Filter out the trues
+    // filter(fn) returns true of false
+    const correctCount = answerTally.filter((wasCorrect) => {
+            // add correct answers to a new array
+            console.log(wasCorrect)
+            return wasCorrect
+        })
+        //  Count the number of entrees in the trues list
+    alert(`You got ${correctCount.length} answers correct! `)
+    return correctCount.length
+};
 
 /**
  * Based on the question, return index of the answer that
@@ -108,7 +120,8 @@ const countCorrectAnswers = () => {};
  */
 const getCorrectAnswer = (question) => {
     return question.answers.findIndex((answer) => {
-        console.log(answer)
+        // loop through each answer 
+        console.log(answer);
         return answer.isCorrect
     })
 };
