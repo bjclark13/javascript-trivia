@@ -82,9 +82,10 @@ const convertIndexToLetter = index => {
     const alphabet = 'abcdefghijklmnopqrstuvwxyz';
 };
 
-const countCorrectAnswers = () => {
+const countCorrectAnswers = (answerTally) => {
     let answerTally = [true, false, true, false];
     // 	Filter out the trues
+    // filter(fn) returns true of false
     const correctCount = answerTally.filter((wasCorrect) => {
             // add correct answers to a new array
             console.log(wasCorrect)
