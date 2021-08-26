@@ -134,7 +134,7 @@ const getCorrectAnswer = question => {
 };
 
 let userAnswers = [];
-for (let i = 0; i < questions.length; i++) {
+for (let i = 0; i < 1; i++) {
 	// TODO: write loop to ask 10 questions
 	const question = getRandomQuestion(); // question
 	const answer = prompt(getQuestionString(question, questions, i)); // ask  question
@@ -152,4 +152,4 @@ for (let i = 0; i < questions.length; i++) {
 	}
 }
 
-countCorrectAnswers();
+countCorrectAnswers(userAnswers);
