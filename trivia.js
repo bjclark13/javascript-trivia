@@ -1,3 +1,4 @@
+console.log(questions);
 /**
  * Get a random question from the list of questions.
  *
@@ -5,13 +6,18 @@
  */
 const getRandomQuestion = () => {
     // CODE GOES HERE
-
+    const random = Math.floor(Math.random() * questions.length);
+    console.log(random, questions[random]);
+    console.log(random);
     // replace return with a random question
     // remove the question from the array after
+    questions.splice(random, 1);
+    console.log(questions);
+    console.log(random);
     // it has been used
     // hint: use splice
 };
-
+getRandomQuestion();
 /**
  * Ask the trivia question
  *
